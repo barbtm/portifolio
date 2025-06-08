@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbara Tanaka - Web Designer | Gatinho Balão & Glassmorphism</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+</head>
+<body>
+    <div class="message-modal" id="messageModal"></div>
+
+    <header id="navbar">
+        <div class="container">
+            <a href="#" class="logo bounce-hover-effect" id="navbarLogo">Barbara Tanaka</a>
+            <button class="menu-toggle" id="mobile-menu" aria-label="Menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#sobre-mim" class="nav-link bounce-hover-effect">Sobre mim</a></li>
+                    <li><a href="#servicos" class="nav-link bounce-hover-effect">Serviços</a></li>
+                    <li><a href="#portfolio" class="nav-link bounce-hover-effect">Portfólio</a></li>
+                    <li><a href="#contato" class="nav-link bounce-hover-effect">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="sobre-mim" class="hero">
+            <div class="container hero-content">
+                <div class="hero-cat-container" id="hero-cat-container">
+                    <img src="https://images.vexels.com/media/users/3/261478/isolated/preview/7d6587883ae6d1459ff69c43d0d2725a-halloween-purple-cat-flat.png?w=360" alt="Gatinho Roxo" class="cat-image" id="catImage">
+                </div>
+                <div class="hero-text">
+                    <h1 class="hero-animated-name" id="heroName">Barbara Tanaka</h1>
+                    <p class="tagline">Web Designer | UI/UX Specialist | Esculpindo o Digital</p>
+                    <p>Transformando ideias em experiências digitais imersivas e visualmente impactantes. Crio interfaces que não apenas funcionam, mas também encantam e envolvem.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/barbflwrs/" target="_blank" aria-label="Instagram" class="bounce-hover-effect"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/barbara-tanaka-menezes/" target="_blank" aria-label="LinkedIn" class="bounce-hover-effect"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/barbtm" target="_blank" aria-label="GitHub" class="bounce-hover-effect"><i class="fab fa-github"></i></a>
+                        <a href="https://wa.me/5511991727833" target="_blank" aria-label="WhatsApp" class="bounce-hover-effect"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos">
+            <div class="container">
+                <h2>Meus Serviços</h2>
+                <p class="section-intro">Soluções de design com alma e tecnologia de ponta para sua marca brilhar:</p>
+                <div class="section-glass-container">
+                    <div class="services-grid">
+                        <div class="service-item" data-service-title="Design de Sites Imersivos">
+                            <i class="fas fa-cat"></i>
+                            <h3 class="service-title">Design de Sites Imersivos</h3>
+                            <p class="service-description">Criação de websites únicos e responsivos com elementos 3D e identidade visual marcante, focados na experiência do usuário.</p>
+                            <div class="gemini-description" style="display: none;"></div>
+                            <div class="loading-indicator" style="display: none;">Carregando...</div>
+                        </div>
+                        <div class="service-item" data-service-title="Interfaces (UI/UX) Encantadoras">
+                            <i class="fas fa-drafting-compass"></i>
+                            <h3 class="service-title">Interfaces (UI/UX) Encantadoras</h3>
+                            <p class="service-description">Desenho de interfaces intuitivas e esteticamente prazerosas que guiam o usuário por uma jornada digital memorável.</p>
+                            <div class="gemini-description" style="display: none;"></div>
+                            <div class="loading-indicator" style="display: none;">Carregando...</div>
+                        </div>
+                        <div class="service-item" data-service-title="Otimização e Performance">
+                            <i class="fas fa-rocket"></i>
+                            <h3 class="service-title">Otimização e Performance</h3>
+                            <p class="service-description">Melhoria da velocidade e performance do seu site para uma experiência fluida, elevando o engajamento e o SEO.</p>
+                            <div class="gemini-description" style="display: none;"></div>
+                            <div class="loading-indicator" style="display: none;">Carregando...</div>
+                        </div>
+                        <div class="service-item" data-service-title="Desenvolvimento Frontend Criativo">
+                            <i class="fas fa-code-branch"></i>
+                            <h3 class="service-title">Desenvolvimento Frontend Criativo</h3>
+                            <p class="service-description">Implementação de designs com código limpo (HTML, CSS, JS), interatividade sofisticada e animações que dão vida à sua visão.</p>
+                            <div class="gemini-description" style="display: none;"></div>
+                            <div class="loading-indicator" style="display: none;">Carregando...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container">
+                <h2>Portfólio</h2>
+                <p class="section-intro">Uma amostra dos projetos onde a magia aconteceu. (EM BREVE)</p>
+                </div>
+        </section>
+
+        <section id="contato">
+    <div class="container">
+        <h2 class="section-title text-center">Contato</h2>
+        <p class="section-subtitle text-center">
+            Tem um projeto em mente ou quer trocar uma ideia? Preencha o formulário abaixo e entrarei em contato em breve.
+        </p>
+
+        <form action="https://formspree.io/f/xblydzjy" method="POST">
+    
+    <div class="form-group">
+        <label for="email" class="form-label">Seu e-mail:</label>
+        <input type="email" id="email" name="email" class="form-input" placeholder="seu.email@exemplo.com" required>
+    </div>
+
+    <div class="form-group">
+        <label for="message" class="form-label">Sua mensagem:</label>
+        <textarea id="message" name="message" class="form-textarea" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="form-button">Enviar</button>
+    </div>
+
+</form>
+        <a href="https://wa.me/5511991727833" target="_blank" class="contact-button whatsapp bounce-hover-effect"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+        </div>
+</section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> <span class="footer-animated-name" id="footerName">Barbara Tanaka</span> - Web Designer. Feito com <i class="fas fa-heart" style="color: var(--primary-purple);"></i> e código.</p>
+        </div>
+    </footer>
+    </html>
