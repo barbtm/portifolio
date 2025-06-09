@@ -74,7 +74,7 @@
             setupInteractiveTextBounce(interactiveElements); 
 
 
-            // Smooth scrolling for navigation links
+            // Rolagem suave para links de navegação
             const navLinks = document.querySelectorAll('header nav a[href^="#"]');
             navLinks.forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -101,7 +101,7 @@
                 });
             });
 
-            // Highlight active nav link on scroll
+            // Destaca link de navegação ativo ao rolar
             const sections = document.querySelectorAll('main section');
             const headerNavLinks = document.querySelectorAll('header nav a.nav-link');
             const navbar = document.getElementById('navbar');
@@ -124,7 +124,7 @@
                 });
             });
 
-            // Mobile menu toggle
+            // Alternar menu móvel
             const menuToggle = document.getElementById('mobile-menu');
             const navList = document.getElementById('nav-list');
 
@@ -139,10 +139,10 @@
                 }
             });
 
-            // Set current year in footer
+            // Definir ano atual no rodapé
             document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-            // Cat Image Balloon Effect
+            // Efeito de balão na imagem de gato
             const heroCatContainer = document.getElementById('hero-cat-container'); 
             const catImage = document.getElementById('catImage'); 
             let burstTimeout;
@@ -276,8 +276,8 @@
                 });
             }
 
-            // Gemini API Integration for Service Descriptions
-            const geminiButtons = document.querySelectorAll('.gemini-button');
+            // Integração de API para descrições de serviços
+            const apiButtons = document.querySelectorAll('.api-button');
             const messageModal = document.getElementById('messageModal');
 
             function showMessage(message, isError = false) {
@@ -288,33 +288,19 @@
                 }, 3000);
             }
 
-            geminiButtons.forEach(button => {
+            apiButtons.forEach(button => {
                 button.addEventListener('click', async function() {
                     await startTone(); 
                     const serviceItem = this.closest('.service-item');
                     const serviceTitle = serviceItem.querySelector('.service-title').textContent;
                     const currentDescription = serviceItem.querySelector('.service-description').textContent;
-                    const geminiDescriptionDiv = serviceItem.querySelector('.gemini-description');
                     const loadingIndicator = serviceItem.querySelector('.loading-indicator');
-
-                    geminiDescriptionDiv.style.display = 'none';
-                    loadingIndicator.style.display = 'block';
-                    this.disabled = true;
-                    this.textContent = 'Gerando...';
-
-
-                    const prompt = `Por favor, gere uma descrição de serviço alternativa, mais criativa e focada em benefícios para um web designer. Use um tom profissional, mas engajador e um pouco divertido. A descrição deve ter no máximo 3 frases curtas. Não use emojis.
-                    Serviço Atual: "${serviceTitle}"
-                    Descrição Atual: "${currentDescription}"
-                    Nova Descrição Criativa:`;
 
                     try {
                         let chatHistory = [];
                         chatHistory.push({ role: "user", parts: [{ text: prompt }] });
                         const payload = { contents: chatHistory };
                         const apiKey = ""; 
-                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-                        
                         const response = await fetch(apiUrl, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -323,8 +309,6 @@
 
                         if (!response.ok) {
                             const errorData = await response.json();
-                            console.error('Erro da API Gemini:', errorData);
-                            throw new Error(`Erro da API: ${errorData.error?.message || response.statusText}`);
                         }
 
                         const result = await response.json();
@@ -332,22 +316,10 @@
                         if (result.candidates && result.candidates.length > 0 &&
                             result.candidates[0].content && result.candidates[0].content.parts &&
                             result.candidates[0].content.parts.length > 0) {
-                            const newDescription = result.candidates[0].content.parts[0].text;
-                            geminiDescriptionDiv.textContent = newDescription.trim();
-                            geminiDescriptionDiv.style.display = 'block';
-                        } else {
-                            console.error('Resposta inesperada da API Gemini:', result);
-                            throw new Error('Não foi possível gerar a descrição. Tente novamente.');
                         }
-                    } catch (error) {
-                        console.error('Erro ao chamar a API Gemini:', error);
-                        showMessage(`Erro ao gerar descrição: ${error.message}`, true);
-                        geminiDescriptionDiv.textContent = 'Não foi possível gerar uma nova descrição no momento.';
-                        geminiDescriptionDiv.style.display = 'block';
                     } finally {
                         loadingIndicator.style.display = 'none';
                         this.disabled = false;
-                        this.innerHTML = '✨ Gerar Descrição Criativa';
                     }
                 });
             });
